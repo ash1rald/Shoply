@@ -1,75 +1,89 @@
-# React + TypeScript + Vite
+# Shoply
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Shoply — учебный интернет-магазин, написанный на **React + TypeScript + Vite**. В проекте есть каталог товаров, страница товара, выдвижная корзина, оформление заказа и страница контактов.
 
-Currently, two official plugins are available:
+## Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Главная страница с баннером и каталогом товаров
+- Карточки товаров и отдельная страница товара
+- Корзина: добавление и удаление товаров, подсчёт суммы
+- Выдвижная корзина (`CartDrawer`) доступна из шапки сайта
+- Страница оформления заказа (Checkout)
+- Страница контактов (Contact) с формой обратной связи
 
-## React Compiler
+## Технологии
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/)
+- [ESLint](https://eslint.org/)
 
-## Expanding the ESLint configuration
+## Быстрый старт
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Нужен установленный [Node.js](https://nodejs.org/) (рекомендуется версия LTS).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# 1. Клонировать репозиторий
+git clone <ссылка-на-репозиторий>
+cd Shoply
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# 2. Установить зависимости
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+# 3. Запустить в режиме разработки
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+После запуска проект будет доступен по адресу, который покажет Vite (обычно `http://localhost:5173`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Скрипты
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Команда           | Что делает                                  |
+| ----------------- | ------------------------------------------- |
+| `npm run dev`     | Запускает dev-сервер с горячей перезагрузкой |
+| `npm run build`   | Собирает проект в папку `dist`              |
+| `npm run preview` | Локально запускает собранную версию         |
+| `npm run lint`    | Проверяет код с помощью ESLint              |
+
+## Структура проекта
 
 ```
+Shoply/
+├── public/              # Статические файлы (картинки, логотипы)
+├── src/
+│   ├── components/      # Переиспользуемые компоненты
+│   │   ├── CartDrawer.tsx
+│   │   ├── Header.tsx
+│   │   └── ProductCard.tsx
+│   ├── data/
+│   │   └── products.ts  # Данные о товарах
+│   ├── pages/           # Страницы приложения
+│   │   ├── Home.tsx
+│   │   ├── Product.tsx
+│   │   ├── ProductPage.tsx
+│   │   ├── Cart.tsx
+│   │   ├── Checkout.tsx
+│   │   └── Contact.tsx
+│   ├── store/
+│   │   └── cartStore.ts # Состояние корзины
+│   ├── types/
+│   │   └── index.ts     # TypeScript-типы
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── index.html
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+```
+
+## Планы по развитию
+
+- [ ] Отправка формы на странице Contact (например, через EmailJS или собственный API)
+- [ ] Поиск и фильтрация товаров
+- [ ] Сохранение корзины между сессиями
+- [ ] Адаптивная вёрстка под мобильные устройства
+
+## Автор
+
+Проект создан в учебных целях.
