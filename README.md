@@ -1,63 +1,64 @@
 # Shoply
 
-Shoply — учебный интернет-магазин, написанный на **React + TypeScript + Vite**. В проекте есть каталог товаров, страница товара, выдвижная корзина, оформление заказа и страница контактов.
+Shoply is a learning e-commerce project built with **React, TypeScript, and Vite**. It features a product catalog, individual product pages, a slide-out shopping cart, a checkout page, and a contact page.
 
-## Возможности
+## Features
 
-- Главная страница с баннером и каталогом товаров
-- Карточки товаров и отдельная страница товара
-- Корзина: добавление и удаление товаров, подсчёт суммы
-- Выдвижная корзина (`CartDrawer`) доступна из шапки сайта
-- Страница оформления заказа (Checkout)
-- Страница контактов (Contact) с формой обратной связи
+- Home page with a banner and product catalog
+- Product cards and individual product pages
+- Shopping cart with the ability to add and remove items
+- Automatic calculation of the total price
+- Slide-out cart (`CartDrawer`) accessible from the website header
+- Checkout page
+- Contact page with a feedback form
 
-## Технологии
+## Tech Stack
 
 - [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vite.dev/)
 - [ESLint](https://eslint.org/)
 
-## Быстрый старт
+## Getting Started
 
-Нужен установленный [Node.js](https://nodejs.org/) (рекомендуется версия LTS).
+Make sure you have [Node.js](https://nodejs.org/) installed (LTS version recommended).
 
 ```bash
-# 1. Клонировать репозиторий
-git clone <ссылка-на-репозиторий>
+# 1. Clone the repository
+git clone <repository-url>
 cd Shoply
 
-# 2. Установить зависимости
+# 2. Install dependencies
 npm install
 
-# 3. Запустить в режиме разработки
+# 3. Start the development server
 npm run dev
 ```
 
-После запуска проект будет доступен по адресу, который покажет Vite (обычно `http://localhost:5173`).
+Once started, the application will be available at the URL provided by Vite (usually `http://localhost:5173`).
 
-## Скрипты
+## Available Scripts
 
-| Команда           | Что делает                                  |
-| ----------------- | ------------------------------------------- |
-| `npm run dev`     | Запускает dev-сервер с горячей перезагрузкой |
-| `npm run build`   | Собирает проект в папку `dist`              |
-| `npm run preview` | Локально запускает собранную версию         |
-| `npm run lint`    | Проверяет код с помощью ESLint              |
+| Command           | Description                                               |
+| ----------------- | --------------------------------------------------------- |
+| `npm run dev`     | Starts the development server with hot module replacement |
+| `npm run build`   | Builds the project into the `dist` directory              |
+| `npm run preview` | Runs a local preview of the production build              |
+| `npm run lint`    | Checks the code using ESLint                              |
 
-## Структура проекта
+## Project Structure
 
-```
+```text
 Shoply/
-├── public/              # Статические файлы (картинки, логотипы)
+├── public/              # Static assets (images, logos)
 ├── src/
-│   ├── components/      # Переиспользуемые компоненты
+│   ├── components/      # Reusable components
 │   │   ├── CartDrawer.tsx
 │   │   ├── Header.tsx
 │   │   └── ProductCard.tsx
 │   ├── data/
-│   │   └── products.ts  # Данные о товарах
-│   ├── pages/           # Страницы приложения
+│   │   └── products.ts  # Product data
+│   ├── pages/           # Application pages
 │   │   ├── Home.tsx
 │   │   ├── Product.tsx
 │   │   ├── ProductPage.tsx
@@ -65,9 +66,9 @@ Shoply/
 │   │   ├── Checkout.tsx
 │   │   └── Contact.tsx
 │   ├── store/
-│   │   └── cartStore.ts # Состояние корзины
+│   │   └── cartStore.ts # Shopping cart state
 │   ├── types/
-│   │   └── index.ts     # TypeScript-типы
+│   │   └── index.ts     # TypeScript types
 │   ├── App.tsx
 │   ├── index.css
 │   └── main.tsx
@@ -77,13 +78,13 @@ Shoply/
 └── vite.config.ts
 ```
 
-## Планы по развитию
+## Roadmap
 
-- [ ] Отправка формы на странице Contact (например, через EmailJS или собственный API)
-- [ ] Поиск и фильтрация товаров
-- [ ] Сохранение корзины между сессиями
-- [ ] Адаптивная вёрстка под мобильные устройства
+- [ ] Implement contact form submission (e.g. using EmailJS or a custom API)
+- [ ] Add product search and filtering
+- [ ] Persist shopping cart data between sessions
+- [ ] Implement responsive design for mobile devices
 
-## Автор
+## Author
 
-Проект создан в учебных целях.
+Created as a learning project.
