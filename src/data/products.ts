@@ -63,7 +63,7 @@ export const products: Product[] = [
     price: 0,
     description: 'This is a test product description for product 8.',
     image: '',
-    category: 'test',
+    category: 'test4',
   },
 
 

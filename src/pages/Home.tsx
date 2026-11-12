@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { products } from '../data/products';
 import type { Product } from '../types';
-import { useState } from 'react';
+
 
 const socials = [
   { href: 'https://www.facebook.com', src: '/facebook-logo-100.png', alt: 'Facebook' },
@@ -13,7 +13,7 @@ const socials = [
 
 
 function Home() {
-  const [category, setCategory] = useState("all");
+  
   return (
     <div className="p-8">
       <div className="relative w-full mb-8 overflow-hidden rounded-lg shadow-md">
@@ -43,22 +43,36 @@ function Home() {
 
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        
-        <a href='/src/pages/Product.tsx#Peripherals' className="block bg-white rounded-lg shadow-md p-4 flex flex-col h-full transition hover:shadow-lg">
-  
-        
-          <img src="/public/Peripherals.png" className="w-200 h-100 object-cover" />
-        </a>
+        <div className="">
+          <a href='/src/pages/Product.tsx#Peripherals' className="block bg-white rounded-lg shadow-md p-4 flex flex-col h-full transition hover:shadow-lg">
+    
+          
+            <img src="/public/Peripherals.png" className="w-200 h-100 object-cover" />
+        </a> 
+        <p className="mt-2 text-lg font-semibold text-gray-800 text-center">Peripherals</p>
+        </div>
+        <div className="">
         <a href="/src/pages/Product.tsx#Components" className="block bg-white rounded-lg shadow-md p-4 flex flex-col h-full transition hover:shadow-lg">
           <img src="/public/Components.png" className="w-200 h-100 object-cover" />
         </a>
+        <p className="mt-2 text-lg font-semibold text-gray-800 text-center">Components</p>
+        </div>
+        <div className="">
         <a href="/src/pages/Product.tsx#Monitors" className="block bg-white rounded-lg shadow-md p-4 flex flex-col h-full transition hover:shadow-lg">
           <img src="/public/Monitors.png" className="w-200 h-100 object-cover" />
         </a>
+        <p className="mt-2 text-lg font-semibold text-gray-800 text-center">Monitors</p>
+        </div>
+        <div className="">
         <a href="/src/pages/Product.tsx#Accessories" className="block bg-white rounded-lg shadow-md p-4 flex flex-col h-full transition hover:shadow-lg">
           <img src="/public/Accessories.png" className="w-200 h-100 object-cover" />
         </a>
+        <p className="mt-2 text-lg font-semibold text-gray-800 text-center">Accessories</p>
+        </div>
       </div>
+      
+      
+
     </div>
   );
 }
