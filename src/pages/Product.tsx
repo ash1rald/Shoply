@@ -1,20 +1,24 @@
-
-import ProductCard from '../components/ProductCard';
-import { products } from '../data/products';
 import { useState } from 'react';
+import ProductCard from '../components/ProductCard';
+import { useProducts } from '../hooks/useProducts';
 
-function Home() {
+export default function Product() {
+  const { products, loading, error } = useProducts();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
-  // Получаем категории автоматически из товаров
+  if (loading) return <p className="p-8">Loading...</p>;
+  if (error) return <p className="p-8">Error: {error}</p>;
+
+  // Categories are derived from the products data to ensure they are always up-to-date
   const categories = [...new Set(products.map((product) => product.category))];
 
-  // Фильтруем товары по выбранным категориям
-  const filtered = selectedCategories.length === 0
-    ? products
-    : products.filter((product) =>
-        selectedCategories.includes(product.category)
-      );
+  // Filter products based on selected categories
+  const filtered =
+    selectedCategories.length === 0
+      ? products
+      : products.filter((product) =>
+          selectedCategories.includes(product.category)
+        );
 
   const toggleCategory = (category: string) => {
     setSelectedCategories((prev) =>
@@ -31,12 +35,9 @@ function Home() {
       </h1>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-[220px_1fr]">
-
         {/* Sidebar */}
         <aside className="h-fit rounded-xl border border-gray-200 p-5">
-          <h2 className="mb-5 text-lg font-semibold">
-            FILTER
-          </h2>
+          <h2 className="mb-5 text-lg font-semibold">FILTER</h2>
 
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-500">
@@ -92,10 +93,7 @@ function Home() {
             </div>
           )}
         </section>
-
       </div>
     </main>
   );
 }
-
-export default Home;
