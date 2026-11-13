@@ -57,14 +57,14 @@ export default function Home() {
         ))}
       </div>
 
-      <h2 className="mt-10 mb-4 text-2xl font-bold">Популярные товары</h2>
+      <h2 className="mt-10 mb-4 text-2xl font-bold">Popular Products</h2>
 
-      {loading && <p>Загрузка...</p>}
-      {error && <p>Ошибка: {error}</p>}
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
 
       {!loading && !error && (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {products.map((p) => (
+          {products.slice(0, 4).map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
