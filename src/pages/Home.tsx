@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useProducts } from '../hooks/useProducts';
+import { useProducts } from '../hooks/useProducts.ts';
 import ProductCard from '../components/ProductCard';
 
 const socials = [
@@ -41,14 +41,14 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-full mx-auto">
         {categories.map((c) => (
           <div key={c.name}>
             <Link
               to={`/products#${c.name}`}
               className="block bg-white rounded-lg shadow-md p-4 flex flex-col h-full transition hover:shadow-lg"
             >
-              <img src={c.img} alt={c.name} className="w-200 h-100 object-cover" />
+              <img src={c.img} alt={c.name} className="w-200 h-100 object-cover max-w-154 mx-auto" />
             </Link>
             <p className="mt-2 text-lg font-semibold text-gray-800 text-center">
               {c.name}
@@ -63,7 +63,7 @@ export default function Home() {
       {error && <p>Error: {error}</p>}
 
       {!loading && !error && (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
           {products.slice(0, 4).map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
