@@ -7,19 +7,27 @@ function Header() {
   const itemsCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur shadow-md px-6 py-4 flex justify-between items-center">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur shadow-md px-6 py-4 flex gap-4  items-center ">
       <Link
         to="/"
         className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent"
       >
         Shoply
       </Link>
-
+    <div className="flex gap-4 justify-center items-center flex-1">
       <Link
         to="/"
         className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium shadow-sm hover:bg-blue-700 hover:shadow-md active:scale-95 transition"
       >
         Home
+      </Link>
+
+
+      <Link
+        to="/about"
+        className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium shadow-sm hover:bg-blue-700 hover:shadow-md active:scale-95 transition"
+      >
+        About
       </Link>
 
       <Link
@@ -35,6 +43,7 @@ function Header() {
       >
         Contact Us
       </Link>
+      </div>
 
       <button onClick={openCart} className="relative" aria-label="Open cart">
         <img

@@ -63,8 +63,8 @@ export default function Home() {
       {error && <p>Error: {error}</p>}
 
       {!loading && !error && (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
-          {products.slice(0, 4).map((p) => (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-10 w-500 mx-auto">
+          {products.slice(0, 10).map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
